@@ -1,0 +1,34 @@
+:root {
+    --white: #fff;
+    --yellow: #F6C145;
+    --orange: #e48010;
+    --brown: #5A4136;
+    --dark: #1B2427;
+}
+
+/* ________________________ */
+
+.custom_navbar {
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+.custom_navbar a:hover {
+    color: var(--brown);
+}
+
+footer img {
+    width: 100px;
+}
+
+.custom_productCard button {
+    color: var(--orange);
+    font-weight: bold;
+}
+
+.custom_productCard button:hover {
+    color: var(--white);
+    background-color: var(--brown);
+}

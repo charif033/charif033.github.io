@@ -1,0 +1,39 @@
+:root {
+    --white: #fff;
+    --yellow: #F6C145;
+    --orange: #e48010;
+    --brown: #5A4136;
+    --dark: #1B2427;
+}
+
+/* ________________________ */
+
+.custom_carousel-caption {
+    text-shadow: 0px 4px 4px var(--orange);
+}
+
+.custom_promotion {
+    background-color: var(--orange);
+    color: #fff;
+    font-weight: bold;
+}
+
+.custom_button-shop {
+    background-color: var(--orange);
+    color: #fff;
+}
+
+.custom_button-shop:hover {
+    background-color: var(--brown);
+    color: #fff;
+}
+
+.custom_button-cart {
+    border: 2px solid var(--orange);
+    color: var(--orange);
+}
+
+.custom_button-cart:hover {
+    border-color: var(--brown);
+    color: var(--brown);
+}
