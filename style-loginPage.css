@@ -1,0 +1,45 @@
+html,
+body {
+    margin: 0;
+    height: 100vh;
+    align-content: center;
+}
+
+.custom_login-container {
+    max-width: 500px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px lightgray;
+}
+
+.custom_login-container .form-group {
+    margin-bottom: 15px;
+}
+
+.custom_login-container .form-control {
+    height: calc(1.5em + .75rem + 2px);
+}
+
+.custom_login-container .btn {
+    width: 100%;
+    background-color: var(--orange);
+    border: none;
+}
+
+.card-header {
+    background-color: var(--dark);
+    color: white;
+
+}
+
+.custom_navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.custom_footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

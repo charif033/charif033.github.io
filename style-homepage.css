@@ -1,26 +1,20 @@
-:root {
-    --white: #fff;
-    --yellow: #F6C145;
-    --orange: #e48010;
-    --brown: #5A4136;
-    --dark: #1B2427;
-}
-
-/* ________________________ */
-
 .custom_carousel-caption {
     text-shadow: 0px 4px 4px var(--orange);
 }
 
 .custom_promotion {
-    background-color: var(--orange);
+    background-color: var(--dark);
     color: #fff;
     font-weight: bold;
 }
 
+.custom_promotion span {
+    animation: promotion 1s infinite;
+}
+
 .custom_button-shop {
     background-color: var(--orange);
-    color: #fff;
+    color: var(--white);
 }
 
 .custom_button-shop:hover {
@@ -36,4 +30,16 @@
 .custom_button-cart:hover {
     border-color: var(--brown);
     color: var(--brown);
+}
+
+@keyframes promotion {
+
+    0%,
+    100% {
+        color: var(--white);
+    }
+
+    50% {
+        color: var(--นพฟ);
+    }
 }

@@ -8,19 +8,23 @@
 
 /* ________________________ */
 
+
+
 .custom_navbar {
-    background-color: #fff;
-    position: sticky;
-    top: 0;
-    z-index: 1020;
+    background-color: var(--white);
+    box-shadow: 0 -10px 20px var(--dark);
 }
 
 .custom_navbar a:hover {
-    color: var(--brown);
+    color: var(--yellow);
 }
 
 footer img {
     width: 100px;
+}
+
+.custom_footer {
+    box-shadow: 0 10px 20px var(--dark);
 }
 
 .custom_productCard button {
@@ -30,5 +34,21 @@ footer img {
 
 .custom_productCard button:hover {
     color: var(--white);
-    background-color: var(--brown);
+    background-color: var(--orange);
+}
+
+.custom_section {
+    padding: 0;
+    border-top: 6px solid var(--dark);
+}
+
+.custom_section-header {
+    padding: 0 16px 8px 16px;
+    border: 0;
+    margin-bottom: 16px;
+    display: inline-block;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    color: var(--white);
+    background-color: var(--dark);
 }
