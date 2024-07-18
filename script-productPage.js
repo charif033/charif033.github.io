@@ -21,7 +21,7 @@ function displayProduct(producttoDisplay, where) {
                 </ul>
                 <h5 class="text-center">${product_price} THB</h5>
             </div>
-            <div class="card-footer p-0">
+            <div class="card-footer p-0 rounded-5 rounded-top-0">
                 <button href="#" class="btn container-fluid rounded-5 rounded-top-0" 
                 onclick="addtoCart(${producttoDisplay[i].id})" data-bs-toggle="modal" data-bs-target="#Modal">Add to
                 Cart</button>

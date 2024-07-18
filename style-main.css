@@ -8,8 +8,6 @@
 
 /* ________________________ */
 
-
-
 .custom_navbar {
     background-color: var(--white);
     box-shadow: 0 -10px 20px var(--dark);
@@ -51,4 +49,13 @@ footer img {
     border-bottom-right-radius: 24px;
     color: var(--white);
     background-color: var(--dark);
+}
+
+.btn-primary {
+    background-color: var(--orange);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--brown);
 }

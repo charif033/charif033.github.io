@@ -12,16 +12,6 @@
     animation: promotion 1s infinite;
 }
 
-.custom_button-shop {
-    background-color: var(--orange);
-    color: var(--white);
-}
-
-.custom_button-shop:hover {
-    background-color: var(--brown);
-    color: #fff;
-}
-
 .custom_button-cart {
     border: 2px solid var(--orange);
     color: var(--orange);

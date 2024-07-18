@@ -1,0 +1,11 @@
+.custom_section {
+    min-height: calc(100vh - 239px);
+}
+
+.custom_product-incart img {
+    width: 150px;
+}
+
+.custom_product-incart input {
+    width: 50px;
+}

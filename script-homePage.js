@@ -19,21 +19,10 @@ for (let i = 0; i < 8; i++) {
             </ul>
             <h5 class="text-center">${product_price} THB</h5>
         </div>
-        <div class="card-footer p-0">
+        <div class="card-footer p-0 rounded-5 rounded-top-0">
             <button href="#" class="btn container-fluid rounded-5 rounded-top-0" 
             onclick="addtoCart(${products[i].id})" data-bs-toggle="modal" data-bs-target="#Modal">Add to
             Cart</button>
-
-            <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header d-flex flex-column border-0">
-                            <h1 class="modal-title fs-5 p-3" id="ModalLabel">Product Added</h1>
-                            <button type="button" class="btn  rounded-5" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </div>`

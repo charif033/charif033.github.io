@@ -1,0 +1,11 @@
+.custom_address img {
+    height: 120px;
+}
+
+.custom_address p {
+    margin: 15px 0;
+}
+
+.contact-container {
+    min-height: calc(100vh - 191px);
+}

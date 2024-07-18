@@ -1,7 +1,14 @@
 window.addtoCart = function (id) {
-    const productId = localStorage.getItem("productId");
-    const cart = productId ? JSON.parse(productId) : [];
-    cart.push(id);
-    localStorage.setItem("productId", JSON.stringify(cart));
-    console.log("in Cart: ", localStorage.getItem("productId"));
+    const cart = localStorage.getItem("cart");
+    const productsInCart = cart ? JSON.parse(cart) : [];
+    const productOnFocus = productsInCart.find(obj => obj.id === id);
+
+    if (productOnFocus === undefined) {
+        productsInCart.push({ id: id, qty: 1 })
+    } else {
+        const indexOnFocus = productsInCart.indexOf(productOnFocus);
+        productsInCart[indexOnFocus].qty += 1
+    }
+    localStorage.setItem("cart", JSON.stringify(productsInCart));
+    console.log("in Cart: ", localStorage.getItem("cart"));
 }

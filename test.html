@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Form Submission</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2>Delivery Form</h2>
+        <form id="deliveryForm" novalidate>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter full name" required>
+                <div class="invalid-feedback">Please enter your full name.</div>
+            </div>
+            <div class="form-group">
+                <label for="address">Delivery Address</label>
+                <input type="text" class="form-control" id="address" placeholder="Enter delivery address" required>
+                <div class="invalid-feedback">Please enter your delivery address.</div>
+            </div>
+        </form>
+
+        <h2>Payment Method Form</h2>
+        <form id="paymentForm" novalidate>
+            <div class="form-group">
+                <label for="paymentMethod">Payment Method</label>
+                <select class="form-control" id="paymentMethod" required>
+                    <option value="">Select a payment method</option>
+                    <option value="creditCard">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                </select>
+                <div class="invalid-feedback">Please select a payment method.</div>
+            </div>
+
+            <div id="creditCardInfo" style="display: none;">
+                <div class="form-group">
+                    <label for="cardNumber">Credit Card Number</label>
+                    <input type="text" class="form-control" id="cardNumber" placeholder="Enter credit card number">
+                    <div class="invalid-feedback">Please enter your credit card number.</div>
+                </div>
+                <div class="form-group">
+                    <label for="cardName">Name on Card</label>
+                    <input type="text" class="form-control" id="cardName" placeholder="Enter name on card">
+                    <div class="invalid-feedback">Please enter the name on your card.</div>
+                </div>
+                <div class="form-group">
+                    <label for="expirationDate">Expiration Date</label>
+                    <input type="text" class="form-control" id="expirationDate" placeholder="MM/YY">
+                    <div class="invalid-feedback">Please enter the expiration date.</div>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" class="form-control" id="cvv" placeholder="Enter CVV">
+                    <div class="invalid-feedback">Please enter your CVV.</div>
+                </div>
+            </div>
+
+            <div id="paypalInfo" style="display: none;">
+                <div class="form-group">
+                    <label for="paypalEmail">PayPal Email</label>
+                    <input type="email" class="form-control" id="paypalEmail" placeholder="Enter PayPal email">
+                    <div class="invalid-feedback">Please enter your PayPal email.</div>
+                </div>
+            </div>
+        </form>
+
+        <button id="submitButton" class="btn btn-primary mt-3">Submit</button>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var paymentMethodSelect = document.getElementById('paymentMethod');
+            var creditCardInfo = document.getElementById('creditCardInfo');
+            var paypalInfo = document.getElementById('paypalInfo');
+            var submitButton = document.getElementById('submitButton');
+
+            paymentMethodSelect.addEventListener('change', function () {
+                if (this.value === 'creditCard') {
+                    creditCardInfo.style.display = 'block';
+                    paypalInfo.style.display = 'none';
+                } else if (this.value === 'paypal') {
+                    creditCardInfo.style.display = 'none';
+                    paypalInfo.style.display = 'block';
+                } else {
+                    creditCardInfo.style.display = 'none';
+                    paypalInfo.style.display = 'none';
+                }
+            });
+
+            submitButton.addEventListener('click', function (event) {
+                event.preventDefault();
+                var deliveryForm = document.getElementById('deliveryForm');
+                var paymentForm = document.getElementById('paymentForm');
+
+                if (deliveryForm.checkValidity() === false || paymentForm.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    deliveryForm.classList.add('was-validated');
+                    paymentForm.classList.add('was-validated');
+                } else {
+                    var deliveryData = {
+                        name: document.getElementById('name').value,
+                        address: document.getElementById('address').value
+                    };
+
+                    var paymentData;
+                    if (paymentMethodSelect.value === 'creditCard') {
+                        paymentData = {
+                            method: 'Credit Card',
+                            cardNumber: document.getElementById('cardNumber').value,
+                            cardName: document.getElementById('cardName').value,
+                            expirationDate: document.getElementById('expirationDate').value,
+                            cvv: document.getElementById('cvv').value
+                        };
+                    } else if (paymentMethodSelect.value === 'paypal') {
+                        paymentData = {
+                            method: 'PayPal',
+                            paypalEmail: document.getElementById('paypalEmail').value
+                        };
+                    }
+
+                    var combinedData = {
+                        delivery: deliveryData,
+                        payment: paymentData
+                    };
+
+                    fetch('https://your-backend-endpoint.com/api/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(combinedData)
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('Success:', data);
+                            // Handle success
+                        })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                            // Handle error
+                        });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
